@@ -3,7 +3,7 @@
 Try this online at [schreiberbrett.github.io/translate-khmer](https://schreiberbrett.github.io/translate-khmer). No installation required.
 
 ## Instructions
-Paste a Khmer (Cambodian) sentence into the provided text box and click "Lookup". The computer will then list the words (and their English definitions) that form the given sentence. Written Khmer does not use spaces, so this project aims to help non-native speakers identify the words that make up a sentence.
+Paste a Khmer (Cambodian) sentence into the provided text box and click "Lookup". The computer will then list the words (and their English definitions) that form the given sentence. Written Khmer does not use spaces, so this software helps non-native speakers identify the words that make up a sentence.
 
 ## Technical Details
 This project was created using [Svelte](https://svelte.dev/). It uses the following divide-and-conquer algorithm to split a sentence into its words, preferring larger matches over smaller ones:
