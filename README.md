@@ -1,105 +1,98 @@
-*Looking for a shareable component template? Go here --> [sveltejs/component-template](https://github.com/sveltejs/component-template)*
+# Translate Khmer
 
----
+Try this online at [schreiberbrett.github.io/translate-khmer](https://schreiberbrett.github.io/translate-khmer). No installation required.
 
-# svelte app
+## Instructions
+Paste a Khmer (Cambodian) sentence into the provided text box and click "Lookup". The computer will then list the words (and their English definitions) that form the given sentence.
 
-This is a project template for [Svelte](https://svelte.dev) apps. It lives at https://github.com/sveltejs/template.
+## Technical Details
+This project was created using [Svelte](https://svelte.dev/). It uses the following divide-and-conquer algorithm to split a sentence into its words, preferring larger matches over smaller ones:
 
-To create a new project based on this template using [degit](https://github.com/Rich-Harris/degit):
-
-```bash
-npx degit sveltejs/template svelte-app
-cd svelte-app
 ```
+Given the sentence: iameatingeggs
 
-*Note that you will need to have [Node.js](https://nodejs.org) installed.*
-
-
-## Get started
-
-Install the dependencies...
-
-```bash
-cd svelte-app
-npm install
-```
-
-...then start [Rollup](https://rollupjs.org):
-
-```bash
-npm run dev
-```
-
-Navigate to [localhost:5000](http://localhost:5000). You should see your app running. Edit a component file in `src`, save it, and reload the page to see your changes.
-
-By default, the server will only respond to requests from localhost. To allow connections from other computers, edit the `sirv` commands in package.json to include the option `--host 0.0.0.0`.
-
-If you're using [Visual Studio Code](https://code.visualstudio.com/) we recommend installing the official extension [Svelte for VS Code](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode). If you are using other editors you may need to install a plugin in order to get syntax highlighting and intellisense.
-
-## Building and running in production mode
-
-To create an optimised version of the app:
-
-```bash
-npm run build
-```
-
-You can run the newly built app with `npm run start`. This uses [sirv](https://github.com/lukeed/sirv), which is included in your package.json's `dependencies` so that the app will work when you deploy to platforms like [Heroku](https://heroku.com).
+Trying 13.
+[iameatingeggs]
+No 13-letter word found.
 
 
-## Single-page app mode
+[iameatingegg]s
+i[ameatingeggs]
 
-By default, sirv will only respond to requests that match files in `public`. This is to maximise compatibility with static fileservers, allowing you to deploy your app anywhere.
+No 12-letter word found.
 
-If you're building a single-page app (SPA) with multiple routes, sirv needs to be able to respond to requests for *any* path. You can make it so by editing the `"start"` command in package.json:
 
-```js
-"start": "sirv public --single"
-```
+Tryng 11.
 
-## Using TypeScript
+[iameatingeg]gs
+i[ameatingegg]s
+ia[meatingeggs]
 
-This template comes with a script to set up a TypeScript development environment, you can run it immediately after cloning the template with:
+No 11-letter word found.
 
-```bash
-node scripts/setupTypeScript.js
-```
 
-Or remove the script via:
+Tryng length 10.
 
-```bash
-rm scripts/setupTypeScript.js
-```
+[iameatinge]ggs
+i[ameatingeg]gs
+ia[meatingegg]s
+iam[eatingeggs]
 
-## Deploying to the web
+No 10-letter word found.
 
-### With [Vercel](https://vercel.com)
 
-Install `vercel` if you haven't already:
+Tryng length 9.
 
-```bash
-npm install -g vercel
-```
+[iameating]eggs
+i[ameatinge]ggs
+ia[meatingeg]gs
+iam[eatingegg]s
+iame[atingeggs]
 
-Then, from within your project folder:
+No 9-letter word found.
 
-```bash
-cd public
-vercel deploy --name my-project
-```
 
-### With [surge](https://surge.sh/)
+Tryng length 8.
 
-Install `surge` if you haven't already:
+[iameatin]geggs
+i[ameating]eggs
+ia[meatinge]ggs
+iam[eatingeg]gs
+iame[atingegg]s
+iamea[tingeggs]
 
-```bash
-npm install -g surge
-```
+No 8-letter word found.
 
-Then, from within your project folder:
 
-```bash
-npm run build
-surge public my-project.surge.sh
+Tryng length 7.
+
+[iameati]ngeggs
+i[ameatin]geggs
+ia[meating]eggs
+iam[eatinge]ggs
+iame[atingeg]gs
+iamea[tingegg]s
+iameat[ingeggs]
+
+No 7-letter word found.
+
+
+Tryng length 6.
+
+[iameat]ingeggs
+i[ameati]ngeggs
+ia[meatin]geggs
+iam[eating]eggs
+
+Found the 6-letter word "eating".
+
+
+
+Continue the algorithm recursively on either side.
+Compute ("iam")   +  [eating] + Compute ("eggs")
+           |            |                  |
+         +-+---+        |                  |
+         |     |        |                  |
+         v     v        v                  v
+Result  [i] + [am] + [eating]      +     [eggs]
 ```
